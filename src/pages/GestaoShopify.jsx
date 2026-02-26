@@ -188,7 +188,7 @@ export function GestaoShopify({ presentationMode }) {
     return {
       ...t,
       addToCartRate: t.sessoes ? t.carrinho / t.sessoes : 0,
-      checkoutRate: t.sessoes ? t.checkout / t.sessoes : 0,
+      checkoutRate: t.sessoes ? t.checkout / t.carrinho : 0,
       purchaseRate: t.sessoes ? t.pedidos / t.sessoes : 0,
       checkoutToPurchase: t.checkout ? t.pedidos / t.checkout : 0,
     };
