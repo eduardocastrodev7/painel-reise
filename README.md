@@ -1,4 +1,4 @@
-# Painel Reise (Front) — Dashboard Gerencial
+# Painel Reise (Front) - Dashboard Gerencial
 
 Front-end do Dashboard Gerencial da Reise em **React + Vite**.  
 Este projeto consome a API do SSOT (Cloud Run) e **não acessa BigQuery direto no browser**.
@@ -55,9 +55,9 @@ Fonte de dados: SSOT API (`/v1/shopify/gestao`).
 - Sessões oficiais do dashboard seguem a regra definida na API (ver README da API)
 
 ## Scripts úteis
-- `npm run dev` — ambiente local
-- `npm run build` — build de produção
-- `npm run preview` — preview do build
+- `npm run dev` - ambiente local
+- `npm run build` - build de produção
+- `npm run preview` - preview do build
 
 ## Segurança
 - Não commitar `.env` / `.env.local`
