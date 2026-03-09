@@ -1,0 +1,169 @@
+/* src/styles/shop-funnel.css */
+
+/* =========================
+   Funnel view toggle (Etapas / Funil)
+   ========================= */
+
+.funnel-view-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  border-radius: 999px;
+  padding: 2px;
+}
+
+.funnel-view-toggle-btn {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+
+  padding: 8px 10px;
+  border-radius: 999px;
+  transition: background 160ms ease, transform 160ms ease, color 160ms ease;
+}
+
+.funnel-view-toggle-btn:hover {
+  transform: translateY(-1px);
+  background: rgba(238, 115, 27, 0.10);
+}
+
+.funnel-view-toggle-btn.is-active {
+  background: rgba(238, 115, 27, 0.18);
+  border: 1px solid rgba(238, 115, 27, 0.30);
+}
+
+/* Dark theme fine-tuning */
+.app-root.theme-dark .funnel-view-toggle {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.app-root.theme-dark .funnel-view-toggle-btn:hover {
+  background: rgba(238, 115, 27, 0.14);
+}
+
+.app-root.theme-dark .funnel-view-toggle-btn.is-active {
+  background: rgba(238, 115, 27, 0.22);
+  border: 1px solid rgba(238, 115, 27, 0.34);
+}
+
+
+/* =========================
+   Visualization container
+   - Fixed height is handled in JSX.
+   - Here we control layout/align to avoid empty spaces.
+   ========================= */
+
+.shopfunnel-viz {
+  margin-top: 8px;
+  width: 100%;
+}
+
+.shopfunnel-viz--steps {
+  display: block;
+}
+
+/* Important: align funnel to the TOP to avoid big empty areas */
+.shopfunnel-viz--funnel {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 2px;
+}
+
+.shopfunnel-steps-measure {
+  width: 100%;
+}
+
+
+/* =========================
+   Funnel (flat, brand-safe, high legibility)
+   ========================= */
+
+:root {
+  --funnel-stroke: rgba(255, 255, 255, 0.12);
+
+  /* Solid fills (no gradient) */
+  --funnel-fill-0: rgba(255, 255, 255, 0.06);
+  --funnel-fill-1: rgba(238, 115, 27, 0.14);
+  --funnel-fill-2: rgba(238, 115, 27, 0.18);
+  --funnel-fill-3: rgba(238, 115, 27, 0.22);
+
+  --funnel-text: rgba(255, 255, 255, 0.96);
+  --funnel-text-strong: rgba(255, 255, 255, 1);
+  --funnel-text-muted: rgba(255, 255, 255, 0.92);
+}
+
+/* Light theme override */
+.app-root.theme-light {
+  --funnel-stroke: rgba(0, 0, 0, 0.10);
+
+  --funnel-fill-0: rgba(0, 0, 0, 0.04);
+  --funnel-fill-1: rgba(238, 115, 27, 0.10);
+  --funnel-fill-2: rgba(238, 115, 27, 0.14);
+  --funnel-fill-3: rgba(238, 115, 27, 0.18);
+
+  --funnel-text: rgba(0, 0, 0, 0.86);
+  --funnel-text-strong: rgba(0, 0, 0, 0.92);
+  --funnel-text-muted: rgba(0, 0, 0, 0.72);
+}
+
+.shopfunnel-funnelWrap {
+  width: 100%;
+  max-width: 640px;
+  height: 100%;
+}
+
+.shopfunnel-funnelSvg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.shopfunnel-funnelSeg {
+  stroke: var(--funnel-stroke);
+  stroke-width: 1.25;
+  stroke-linejoin: round;
+}
+
+.shopfunnel-funnelSeg--0 { fill: var(--funnel-fill-0); }
+.shopfunnel-funnelSeg--1 { fill: var(--funnel-fill-1); }
+.shopfunnel-funnelSeg--2 { fill: var(--funnel-fill-2); }
+.shopfunnel-funnelSeg--3 { fill: var(--funnel-fill-3); }
+
+/* Top row (inside each trapezoid): label left / % right */
+.shopfunnel-funnelTopLabel {
+  fill: var(--funnel-text);
+  font-size: 13px;
+  font-weight: 850;
+  letter-spacing: -0.02em;
+}
+
+.shopfunnel-funnelTopPct {
+  fill: var(--funnel-text-muted);
+  font-size: 13px;
+  font-weight: 850;
+  letter-spacing: -0.01em;
+}
+
+.shopfunnel-funnelValue {
+  fill: var(--funnel-text-strong);
+  font-size: 26px;
+  font-weight: 950;
+  letter-spacing: -0.03em;
+}
+
+@media (max-width: 520px) {
+  .shopfunnel-funnelWrap { max-width: 520px; }
+  .shopfunnel-funnelTopLabel { font-size: 12px; }
+  .shopfunnel-funnelTopPct { font-size: 12px; }
+  .shopfunnel-funnelValue { font-size: 24px; }
+}
